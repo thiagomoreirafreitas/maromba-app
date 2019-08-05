@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>IMC</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #f="ngForm" (ngSubmit)="salvar(f)">
+    <ion-list>
+      <ion-item [ngClass]="aplicaCssErro(nome)">
+        <ion-label position="floating">Nome:*</ion-label>
+        <ion-input type="text" name="nome" id="nome" [(ngModel)]="p.nome" required minlength="3" #nome="ngModel">
+        </ion-input>
+        <!--                 <app-campo-control-erro [mostrarErro]="verificaValidTouched(nome)" msgErro="Nome é obrigatório.">
+                </app-campo-control-erro> -->
+      </ion-item>
+      <ion-item [ngClass]="aplicaCssErro(idade)">
+        <ion-label position="floating">Idade:*</ion-label>
+        <ion-input type="text" name="idade" id="idade" [(ngModel)]="p.idade" #idade="ngModel" required>
+        </ion-input>
+        <!--                 <app-campo-control-erro [mostrarErro]="verificaValidTouched(idade)"
+                  msgErro="Idade é obrigatória."></app-campo-control-erro> -->
+      </ion-item>
+      <ion-item [ngClass]="aplicaCssErro(sexo)">
+        <ion-label position="floating">Sexo:*</ion-label>
+        <ion-select name="sexo" id="sexo" [(ngModel)]="p.sexo" #sexo="ngModel" required>
+          <ion-select-option [value]="m">Masculino
+          </ion-select-option>
+          <ion-select-option [value]="f">Feminino
+          </ion-select-option>
+        </ion-select>
+        <!--                 <app-campo-control-erro [mostrarErro]="verificaValidTouched(sexo)" msgErro="Sexo é obrigatório">
+                </app-campo-control-erro> -->
+      </ion-item>
+      <ion-item [ngClass]="aplicaCssErro(altura)">
+        <ion-label position="floating">Altura:*</ion-label>
+        <ion-input type="text" name="altura" id="altura" [(ngModel)]="p.altura" #altura="ngModel" required>
+        </ion-input>
+        <!--                 <app-campo-control-erro [mostrarErro]="verificaValidTouched(altura)"
+                    msgErro="Altura é obrigatória."></app-campo-control-erro> -->
+      </ion-item>
+      <ion-item [ngClass]="aplicaCssErro(peso)">
+        <ion-label position="floating">Peso:*</ion-label>
+        <ion-input type="text" name="peso" id="peso" [(ngModel)]="p.peso" #peso="ngModel" required>
+        </ion-input>
+        <!--                 <app-campo-control-erro [mostrarErro]="verificaValidTouched(peso)"
+                      msgErro="peso é obrigatório."></app-campo-control-erro> -->
+      </ion-item>
+      <ion-item *ngIf="resultado">
+        <h3>{{resultado}}</h3>
+      </ion-item>
+    </ion-list>
+    <ion-button type="submit" class="ios button button-block button-solid ion-activatable ion-focusable hydrated botao">
+      Salvar
+    </ion-button>
+  </form>
+  <pre>{{ p | json }}</pre>
+</ion-content>
