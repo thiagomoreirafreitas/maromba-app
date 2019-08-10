@@ -1,5 +1,5 @@
 # Maromba APP
-Aplicativo utilizando Ionic e Angular com o objetivo de auxiliar praticantes de atividade física a acompanhar sua evolução. 
+Aplicativo utilizando Ionic e Angular com o objetivo de auxiliar praticantes de atividade física a acompanharem sua evolução. 
 
 # Tarefas
 - [x] Cáluco de IMC.
